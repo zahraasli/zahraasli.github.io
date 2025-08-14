@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Works — Zahra Asli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="zahra.css">
+</head>
+<body class="theme-light">
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="/">Zahra <span>Asli</span></a>
+      <nav class="navlinks">
+        <a href="/works.html" aria-current="page">Works</a>
+        <a href="/exhibitions.html">Exhibitions</a>
+        <a href="/research.html">Research</a>
+        <a href="/bio.html">Bio</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="works" class="section container">
+      <h1 class="h1">Works</h1>
+      <p class="muted" style="margin-bottom:12px">Selected pieces across posters, interactive media, and installations.</p>
+
+      <div class="grid">
+        <!-- نمونه‌ها؛ بعداً عکس و متن واقعی می‌گذاریم -->
+        <article class="card span-4">
+          <figure><img src="/assets/works/work-01.jpg" alt="Work 01" loading="lazy"></figure>
+          <div class="meta"><h3 class="h3">Work Title 01</h3><p>One-liner · 2024</p></div>
+        </article>
+        <article class="card span-4">
+          <figure><img src="/assets/works/work-02.jpg" alt="Work 02" loading="lazy"></figure>
+          <div class="meta"><h3 class="h3">Work Title 02</h3><p>One-liner · 2024</p></div>
+        </article>
+        <article class="card span-4">
+          <figure><img src="/assets/works/work-03.jpg" alt="Work 03" loading="lazy"></figure>
+          <div class="meta"><h3 class="h3">Work Title 03</h3><p>One-liner · 2023</p></div>
+        </article>
+        <article class="card span-4">
+          <figure><img src="/assets/works/work-04.jpg" alt="Work 04" loading="lazy"></figure>
+          <div class="meta"><h3 class="h3">Work Title 04</h3><p>One-liner · 2023</p></div>
+        </article>
+        <article class="card span-4">
+          <figure><img src="/assets/works/work-05.jpg" alt="Work 05" loading="lazy"></figure>
+          <div class="meta"><h3 class="h3">Work Title 05</h3><p>One-liner · 2022</p></div>
+        </article>
+        <article class="card span-4">
+          <figure><img src="/assets/works/work-06.jpg" alt="Work 06" loading="lazy"></figure>
+          <div class="meta"><h3 class="h3">Work Title 06</h3><p>One-liner · 2022</p></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- لایت‌باکس ساده (از قبل در CSS/JS پشتیبانی می‌شود) -->
+  <dialog id="lb">
+    <div class="lb-bar"><span id="lbTitle">Title</span><button class="x" onclick="lb.close()">Close</button></div>
+    <img class="lb-img" id="lbImg" alt="Work">
+  </dialog>
+
+  <script>
+    // Lightbox
+    const lb = document.getElementById('lb');
+    const lbImg = document.getElementById('lbImg');
+    const lbTitle = document.getElementById('lbTitle');
+    document.querySelectorAll('.card img').forEach(img=>{
+      img.style.cursor='zoom-in';
+      img.addEventListener('click', ()=>{
+        lbImg.src = img.src;
+        lbTitle.textContent = img.closest('.card')?.querySelector('h3')?.textContent || '';
+        lb.showModal();
+      });
+    });
+  </script>
+</body>
+</html>
