@@ -39,7 +39,7 @@ hr{border:none;border-top:1px solid var(--line);margin:var(--s-7) 0}
 /* ---------- Header / Nav ---------- */
 .header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.05) blur(8px);z-index:50;border-bottom:1px solid var(--line)}
 /* taller top bar */
-.nav{display:flex;justify-content:space-between;align-items:center;gap:var(--s-3);padding:28px 0}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:var(--s-3);padding:40px 0}
 
 .navlinks{display:flex;gap:var(--s-3);flex-wrap:wrap}
 .navlinks a{opacity:.85;padding:6px 2px;border-bottom:1px solid transparent}
