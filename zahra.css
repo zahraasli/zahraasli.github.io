@@ -76,3 +76,17 @@ dialog::backdrop{background:rgba(0,0,0,.5)} dialog{padding:0;border:none;border-
 }
 /* small extra gap between the two words */
 .brand span{margin-left:.6em}
+/* --- Breakfast-like navbar type --- */
+.brand,
+.navlinks a{
+  font-family: 'Jost', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  text-transform: uppercase;   /* حروف بزرگ مثل نمونه */
+  letter-spacing: .16em;       /* فاصله‌ی حروف ظریف */
+  font-weight: 300;            /* نازک و شیک */
+}
+
+/* برند سمت چپ: بدون فاصله بین دو کلمه */
+.brand span{ margin-left: 0 }   /* اگر قبلاً فاصله‌ای داده بودیم، حذفش کن */
+
+/* اگر می‌خوای خیلی ظریف‌تر شود، این خط را فعال کن: */
+/* .brand, .navlinks a{ font-weight: 200 } */
