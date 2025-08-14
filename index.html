@@ -9,108 +9,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="zahra.css">
 </head>
-<body class="theme-light">
+<body class="theme-light no-scroll">
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="#works">Zahra <span>Asli</span></a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">Menu</button>
-      <nav id="site-nav" class="navlinks" role="navigation">
-        <a href="#works">Works</a>
-        <a href="#exhibitions">Exhibitions</a>
-        <a href="#research">Research</a>
-        <a href="#bio">Bio</a>
-        <a href="#contact">Contact</a>
+      <a class="brand" href="/">Zahra <span>Asli</span></a>
+      <nav class="navlinks">
+        <a href="/works.html">Works</a>
+        <a href="/exhibitions.html">Exhibitions</a>
+        <a href="/research.html">Research</a>
+        <a href="/bio.html">Bio</a>
+        <a href="/contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
+  <!-- FULLSCREEN VIDEO (no scrolling) -->
   <main>
-    <section id="works" class="section container">
-      <h1 class="h1">Works</h1>
-      <p class="muted" style="margin-bottom:12px">Selected pieces across posters, interactive media, and installations.</p>
-      <div class="grid">
-        <article class="card span-4"><figure><img src="/assets/works/work-01.jpg" alt="Work 01" loading="lazy" /></figure><div class="meta"><h3 class="h3">Work Title 01</h3><p>One-line description · 2022</p></div></article>
-        <article class="card span-4"><figure><img src="/assets/works/work-02.jpg" alt="Work 02" loading="lazy" /></figure><div class="meta"><h3 class="h3">Work Title 02</h3><p>One-line description · 2023</p></div></article>
-        <article class="card span-4"><figure><img src="/assets/works/work-03.jpg" alt="Work 03" loading="lazy" /></figure><div class="meta"><h3 class="h3">Work Title 03</h3><p>One-line description · 2024</p></div></article>
-        <article class="card span-4"><figure><img src="/assets/works/work-04.jpg" alt="Work 04" loading="lazy" /></figure><div class="meta"><h3 class="h3">Work Title 04</h3><p>One-line description · 2022</p></div></article>
-        <article class="card span-4"><figure><img src="/assets/works/work-05.jpg" alt="Work 05" loading="lazy" /></figure><div class="meta"><h3 class="h3">Work Title 05</h3><p>One-line description · 2023</p></div></article>
-        <article class="card span-4"><figure><img src="/assets/works/work-06.jpg" alt="Work 06" loading="lazy" /></figure><div class="meta"><h3 class="h3">Work Title 06</h3><p>One-line description · 2024</p></div></article>
-      </div>
-    </section>
+    <section class="hero-full">
+      <video class="hero-video"
+             autoplay
+             muted
+             loop
+             playsinline
+             preload="auto"
+             poster="/assets/hero.jpg">
+        <source src="/assets/hero.webm" type="video/webm">
+        <source src="/assets/hero.mp4"  type="video/mp4">
+        <!-- اگر مرورگر ویدیو رو پخش نکرد، پوستر نمایش داده می‌شود -->
+      </video>
 
-    <section id="exhibitions" class="section container">
-      <h2 class="h2">Exhibitions</h2>
-      <div class="grid">
-        <article class="card span-6"><div class="meta"><h3 class="h3">Exhibition Title, Venue</h3><p>City, Country — Month Year</p></div></article>
-        <article class="card span-6"><div class="meta"><h3 class="h3">Exhibition Title, Venue</h3><p>City, Country — Month Year</p></div></article>
-      </div>
-    </section>
-
-    <section id="research" class="section container">
-      <h2 class="h2">Research & Publications</h2>
-      <div class="grid">
-        <article class="card span-6"><div class="meta"><h3 class="h3">Glitch as an Aesthetic Strategy for Ecological Metaphors</h3><p>Conference paper · 2025 · <a href="#" target="_blank" rel="noreferrer">PDF (soon)</a></p></div></article>
-        <article class="card span-6"><div class="meta"><h3 class="h3">From Speaking to Being Heard</h3><p>Article in progress — Subaltern voice & digital activism</p></div></article>
-      </div>
-    </section>
-
-    <section id="bio" class="section container">
-      <h2 class="h2">Artist Bio</h2>
-      <div class="grid">
-        <div class="span-7 stack">
-          <p>Zahra Asli is an artist, designer, and researcher exploring glitch aesthetics, kinesthetic experience, and multisensory design across posters, interactive media, and research writing.</p>
-          <p class="muted">Shorter, factual bio goes here. Include education/affiliations if needed.</p>
-          <div class="cluster"><a class="btn outline" href="/Zahra-Asli-CV.pdf" target="_blank" rel="noreferrer">Download CV</a></div>
-        </div>
-        <figure class="card span-5"><img src="/assets/bio/portrait.jpg" alt="Portrait of Zahra Asli" loading="lazy" /></figure>
-      </div>
-    </section>
-
-    <section id="contact" class="section container">
-      <h2 class="h2">Contact</h2>
-      <div class="grid">
-        <div class="span-6 stack">
-          <div class="pill">Email: <a href="mailto:zahra@example.com">zahra@example.com</a></div>
-          <div class="pill">Instagram: <a href="https://instagram.com" target="_blank" rel="noreferrer">@zahra</a></div>
-          <div class="pill">LinkedIn: <a href="https://linkedin.com" target="_blank" rel="noreferrer">link</a></div>
-        </div>
-        <div class="span-6 small muted"><p>Prefer email for inquiries about exhibitions, collaborations, and commissions.</p></div>
+      <!-- متن/دکمه‌ی شناور روی ویدیو (دلخواه) -->
+      <div class="hero-overlay">
+        <h1 class="logo">Zahra Asli</h1>
+        <a class="btn outline" href="/works.html">Enter</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container cluster" style="justify-content:space-between;padding:20px 0">
-      <div>© <span id="y"></span> Zahra Asli</div>
-      <div>Minimal portfolio inspired by clarity and motion</div>
-    </div>
-  </footer>
-
-  <dialog id="lb">
-    <div class="lb-bar"><span id="lbTitle">Title</span><button class="x" onclick="lb.close()">Close</button></div>
-    <img class="lb-img" id="lbImg" alt="Work" />
-  </dialog>
-
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('site-nav');
-    if(toggle){
-      toggle.addEventListener('click', ()=>{
-        const open = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-    const lb = document.getElementById('lb');
-    const lbImg = document.getElementById('lbImg');
-    const lbTitle = document.getElementById('lbTitle');
-    document.querySelectorAll('.card img').forEach(img=>{
-      img.style.cursor='zoom-in';
-      img.addEventListener('click', ()=>{
-        lbImg.src = img.src;
-        lbTitle.textContent = img.closest('.card')?.querySelector('h3')?.textContent||'';
-        lb.showModal();
-      });
+    // اگر تب غیرفعال شد ویدیو Pause شود (صرفه‌جویی باتری)
+    const vid = document.querySelector('.hero-video');
+    document.addEventListener('visibilitychange', ()=>{
+      if (document.hidden) vid && vid.pause();
+      else vid && vid.play();
     });
   </script>
 </body>
