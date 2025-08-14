@@ -25,9 +25,7 @@
 
   <!-- FULLSCREEN VIDEO (no scrolling) -->
   <main>
-    <<div class="hero-overlay">
-  <a class="btn outline" href="/works.html">Enter</a>
-</div>>
+    <section class="hero-full">
       <video class="hero-video"
              autoplay
              muted
@@ -37,24 +35,18 @@
              poster="/assets/hero.jpg">
         <source src="/assets/hero.webm" type="video/webm">
         <source src="/assets/hero.mp4"  type="video/mp4">
-        <!-- اگر مرورگر ویدیو رو پخش نکرد، پوستر نمایش داده می‌شود -->
       </video>
-
-      <!-- متن/دکمه‌ی شناور روی ویدیو (دلخواه) -->
-      <div class="hero-overlay">
-        <h1 class="logo">Zahra Asli</h1>
-        <a class="btn outline" href="/works.html">Enter</a>
-      </div>
     </section>
   </main>
 
   <script>
-    // اگر تب غیرفعال شد ویدیو Pause شود (صرفه‌جویی باتری)
+    // Pause the video when tab is hidden; resume when visible
     const vid = document.querySelector('.hero-video');
-    document.addEventListener('visibilitychange', ()=>{
-      if (document.hidden) vid && vid.pause();
-      else vid && vid.play();
+    document.addEventListener('visibilitychange', () => {
+      if (!vid) return;
+      if (document.hidden) vid.pause(); else vid.play();
     });
   </script>
 </body>
 </html>
+
