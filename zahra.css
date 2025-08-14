@@ -121,3 +121,17 @@ dialog{padding:0;border:none;border-radius:12px;max-width:min(92vw,1100px);box-s
     gap: clamp(20px, 3vw, 100px);  
   }
 }
+/* Brand: bigger + more tracking than menu */
+.navlinks a{
+  letter-spacing: .14em;    
+  font-weight: 300;
+}
+
+.brand{
+  font-weight: 300;        
+  letter-spacing: .28em;   
+  font-size: clamp(16px, 1.2vw + 12px, 24px); 
+  white-space: nowrap;
+  word-spacing: 0;
+}
+.brand span{ margin-left: 0 } 
