@@ -65,10 +65,10 @@ dialog::backdrop{background:rgba(0,0,0,.5)} dialog{padding:0;border:none;border-
 .brand{font-weight:500; letter-spacing:.2px; opacity:.85}
 .brand span{color:var(--accent)}
 .brand:hover{opacity:1}
-/* Brand: wide spaced letters like "Z A H R A  A S L I" */
+/* Brand: wide spaced letters like "Z A H R A A S L I" */
 .brand{
-  font-weight:500;              /* lighter than bold */
-  text-transform:uppercase;     /* ZAHRA ASLI */
+  font-weight:500;              /* lighter */
+  text-transform:uppercase;     /* ZAHRAASLI */
   letter-spacing:.35em;         /* space between letters */
   word-spacing:.6em;            /* extra space between words */
   white-space:nowrap;           /* keep on one line */
