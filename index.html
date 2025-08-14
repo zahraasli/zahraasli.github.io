@@ -9,6 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="zahra.css">
 </head>
+  <script>
+  // قد واقعی هدر را اندازه بگیر و در --hdr بگذار
+  const root = document.documentElement;
+  const hdr = document.querySelector('.header');
+  function setHeroH(){ root.style.setProperty('--hdr', hdr.offsetHeight + 'px'); }
+  setHeroH();
+  addEventListener('resize', setHeroH);
+</script>
 <body class="theme-light no-scroll">
   <header class="header">
     <div class="container nav">
