@@ -116,3 +116,8 @@ dialog{padding:0;border:none;border-radius:12px;max-width:min(92vw,1100px);box-s
   gap:16px; text-align:center; padding:16px;
 }
 .hero-overlay .logo{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:.5px;margin:0}
+@media (min-width: 761px){
+  .navlinks{
+    gap: clamp(28px, 6vw, 120px);  
+  }
+}
