@@ -200,7 +200,7 @@ dialog{padding:0;border:none;border-radius:12px;max-width:min(92vw,1100px);box-s
 /* کاور مستطیلی و گوشه‌های تیز */
 .work-cover{
   position:relative; overflow:hidden; border-radius:0;
-  aspect-ratio: 3 / 2;                  /* مستطیلی؛ اگر خواستی 4/3 یا 16/9 کن */
+  aspect-ratio: 16 / 9;                  /* مستطیلی؛ اگر خواستی 4/3 یا 16/9 کن */
   background:#f2f2f2;
 }
 .work-cover img{
