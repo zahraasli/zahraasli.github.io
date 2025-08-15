@@ -4,16 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Works — Zahra Asli</title>
+
+  <!-- Fonts (same as home) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="zahra.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="zahra.css" />
 </head>
 <body class="theme-light">
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="/">Zahra <span>Asli</span></a>
-      <nav class="navlinks">
+      <a class="brand" href="/" aria-label="Zahra Asli — Home">Zahra<span>Asli</span></a>
+      <nav class="navlinks" aria-label="Primary">
         <a href="/works.html" aria-current="page">Works</a>
         <a href="/exhibitions.html">Exhibitions</a>
         <a href="/research.html">Research</a>
@@ -23,60 +26,93 @@
     </div>
   </header>
 
-  <main>
-    <section id="works" class="section container">
-      <h1 class="h1">Works</h1>
-      <p class="muted" style="margin-bottom:12px">Selected pieces across posters, interactive media, and installations.</p>
+  <main class="section container">
+    <!-- اگر تیتر نمی‌خواهی، این h1 را حذف کن -->
+    <h1 class="h1" style="margin-bottom:12px">Works</h1>
 
-      <div class="grid">
-        <!-- نمونه‌ها؛ بعداً عکس و متن واقعی می‌گذاریم -->
-        <article class="card span-4">
-          <figure><img src="/assets/works/work-01.jpg" alt="Work 01" loading="lazy"></figure>
-          <div class="meta"><h3 class="h3">Work Title 01</h3><p>One-liner · 2024</p></div>
-        </article>
-        <article class="card span-4">
-          <figure><img src="/assets/works/work-02.jpg" alt="Work 02" loading="lazy"></figure>
-          <div class="meta"><h3 class="h3">Work Title 02</h3><p>One-liner · 2024</p></div>
-        </article>
-        <article class="card span-4">
-          <figure><img src="/assets/works/work-03.jpg" alt="Work 03" loading="lazy"></figure>
-          <div class="meta"><h3 class="h3">Work Title 03</h3><p>One-liner · 2023</p></div>
-        </article>
-        <article class="card span-4">
-          <figure><img src="/assets/works/work-04.jpg" alt="Work 04" loading="lazy"></figure>
-          <div class="meta"><h3 class="h3">Work Title 04</h3><p>One-liner · 2023</p></div>
-        </article>
-        <article class="card span-4">
-          <figure><img src="/assets/works/work-05.jpg" alt="Work 05" loading="lazy"></figure>
-          <div class="meta"><h3 class="h3">Work Title 05</h3><p>One-liner · 2022</p></div>
-        </article>
-        <article class="card span-4">
-          <figure><img src="/assets/works/work-06.jpg" alt="Work 06" loading="lazy"></figure>
-          <div class="meta"><h3 class="h3">Work Title 06</h3><p>One-liner · 2022</p></div>
-        </article>
-      </div>
-    </section>
+    <div class="grid">
+      <!-- کارت نمونه — فقط کاور و توضیح را عوض کن -->
+      <article class="span-4">
+        <a class="work" href="#">
+          <figure class="work-cover">
+            <img src="/assets/works/project-01/cover.jpg" alt="Project 01 cover" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Oceans</span></figcaption>
+          </figure>
+          <div class="work-meta">
+            <span class="work-tags">Interior · Installation</span>
+            <span class="work-year">2024</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="span-4">
+        <a class="work" href="#">
+          <figure class="work-cover">
+            <img src="/assets/works/project-02/cover.jpg" alt="Project 02 cover" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Water Series</span></figcaption>
+          </figure>
+          <div class="work-meta">
+            <span class="work-tags">Photography · Series</span>
+            <span class="work-year">2023</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="span-4">
+        <a class="work" href="#">
+          <figure class="work-cover">
+            <img src="/assets/works/project-03/cover.jpg" alt="Project 03 cover" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Warming Seas</span></figcaption>
+          </figure>
+          <div class="work-meta">
+            <span class="work-tags">Poster · Visual System</span>
+            <span class="work-year">2022</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- نمونه‌های بیشتر (کپی/پیست) -->
+      <article class="span-4">
+        <a class="work" href="#">
+          <figure class="work-cover">
+            <img src="/assets/works/project-04/cover.jpg" alt="Project 04 cover" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Portraits</span></figcaption>
+          </figure>
+          <div class="work-meta">
+            <span class="work-tags">Photography · Series</span>
+            <span class="work-year">2022</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="span-4">
+        <a class="work" href="#">
+          <figure class="work-cover">
+            <img src="/assets/works/project-05/cover.jpg" alt="Project 05 cover" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Interwoven Existence</span></figcaption>
+          </figure>
+          <div class="work-meta">
+            <span class="work-tags">Poster · Identity</span>
+            <span class="work-year">2021</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="span-4">
+        <a class="work" href="#">
+          <figure class="work-cover">
+            <img src="/assets/works/project-06/cover.jpg" alt="Project 06 cover" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">The Pearl</span></figcaption>
+          </figure>
+          <div class="work-meta">
+            <span class="work-tags">Interior · Lighting</span>
+            <span class="work-year">2020</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- هر چقدر لازم داری کارت اضافه کن -->
+    </div>
   </main>
-
-  <!-- لایت‌باکس ساده (از قبل در CSS/JS پشتیبانی می‌شود) -->
-  <dialog id="lb">
-    <div class="lb-bar"><span id="lbTitle">Title</span><button class="x" onclick="lb.close()">Close</button></div>
-    <img class="lb-img" id="lbImg" alt="Work">
-  </dialog>
-
-  <script>
-    // Lightbox
-    const lb = document.getElementById('lb');
-    const lbImg = document.getElementById('lbImg');
-    const lbTitle = document.getElementById('lbTitle');
-    document.querySelectorAll('.card img').forEach(img=>{
-      img.style.cursor='zoom-in';
-      img.addEventListener('click', ()=>{
-        lbImg.src = img.src;
-        lbTitle.textContent = img.closest('.card')?.querySelector('h3')?.textContent || '';
-        lb.showModal();
-      });
-    });
-  </script>
 </body>
 </html>
