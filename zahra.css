@@ -1,6 +1,6 @@
 :root{
   --bg:#ffffff; --fg:#111111; --muted:#6a6a6a; --line:#e6e6e6; --accent:#111111; --card:#ffffff;
-  --maxw:1680px;            /* wider container for bigger tiles */
+  --maxw:1360px;              /* keeps tiles moderate so 4 per row look right */
   --radius:18px; --shadow:0 8px 30px rgba(0,0,0,.06);
   --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px; --s-6:24px; --s-7:32px; --s-8:48px;
   --fs--1:clamp(11px, .7vw + 7px, 13px);
@@ -21,8 +21,8 @@ hr{border:none;border-top:1px solid var(--line);margin:var(--s-7) 0}
 .h2{font-size:var(--fs-2);font-weight:650;margin:.2rem 0 .6rem}
 .h3{font-size:var(--fs-1);font-weight:600;margin:.2rem 0 .4rem}
 .muted{color:var(--muted)} small,.small{font-size:var(--fs--1);color:var(--muted)}
-.container{max-width:var(--maxw);margin:auto;padding:0 6px}   /* tighter side padding */
-.section{margin:24px auto}                                     /* less top/bottom */
+.container{max-width:var(--maxw);margin:auto;padding:0 8px}
+.section{margin:24px auto}
 
 /* Header / Nav */
 .header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.05) blur(8px);z-index:50;border-bottom:1px solid var(--line)}
@@ -51,7 +51,6 @@ hr{border:none;border-top:1px solid var(--line);margin:var(--s-7) 0}
   font-size:clamp(15px, 1.1vw + 11px, 22px);
 }
 .brand span{margin-left:0}
-
 @media (min-width:761px){ .navlinks{ gap:clamp(16px, 3vw, 85px); } }
 .navlinks a{ letter-spacing:.14em; font-weight:300; }
 
@@ -67,33 +66,29 @@ label{display:block}
 .theme-dark{--bg:#0f0f0f;--fg:#f5f5f5;--muted:#bdbdbd;--line:#222;--card:#181818}
 .theme-cream{--bg:#f7f2ea;--fg:#1b1b1b;--muted:#6a6a6a;--line:#e6dfd5;--card:#fffaf3}
 
-/* Fullscreen hero (cover) */
+/* Fullscreen hero */
 .no-scroll{overflow:hidden}
 .hero-full{position:relative; width:100vw; height:calc(100vh - var(--hdr)); overflow:hidden;}
-.hero-full .hero-video{
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; object-position:50% 50%; background:transparent;
-}
+.hero-full .hero-video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 50%; background:transparent;}
 
-/* ===== Works grid — big tiles, almost no gutters (Breakfast-like) ===== */
+/* ===== Works grid — 4 columns, minimal gutters (Breakfast-like) ===== */
 .works-grid{
   display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr)); /* big rectangles */
-  gap:0;                                           /* zero gutters */
+  grid-template-columns: repeat(4, minmax(0,1fr)); /* always 4 on desktop */
+  gap:4px;                                        /* tiny gutters */
 }
-@media (min-width:1750px){ .works-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); } }
-@media (max-width:1080px){ .works-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media (max-width:560px) { .works-grid{ grid-template-columns: 1fr; } }
+@media (max-width:1100px){ .works-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width:760px) { .works-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width:480px) { .works-grid{ grid-template-columns: 1fr; } }
 
 .work{ display:block; color:inherit; }
 .works-grid > article{ margin:0; }
 
-/* ensure no legacy span classes affect layout */
-.works-grid > article[class]{ grid-column:auto !important; }
-
+/* remove user-agent margins that create unwanted gaps */
+figure{ margin:0; }
 .work-cover{
   position:relative; overflow:hidden; border-radius:0;
-  aspect-ratio:16 / 9;                 /* change to 3/2 if you want taller */
+  aspect-ratio: 3 / 2;                 /* taller than 16/9; closer to Breakfast */
   background:#f2f2f2;
 }
 .work-cover img{
@@ -101,16 +96,28 @@ label{display:block}
   display:block;
   transition:transform .35s ease, filter .35s ease;
 }
+.work-overlay{
+  position:absolute; inset:0; display:flex; align-items:flex-end;
+  padding:12px; opacity:0; transition:opacity .25s ease;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%);
+  border-radius:0;
+}
+.work-title{
+  font-family:'Jost', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  text-transform:uppercase; letter-spacing:.12em; font-weight:300;
+  font-size:clamp(12px, .9vw + 10px, 18px); color:#fff;
+}
+.work:hover .work-overlay{ opacity:1; }
 .work:hover .work-cover img{ transform:scale(1.02); filter:saturate(1.05); }
 
-/* caption under image, ultra-tight */
-.work-meta{ margin-top:2px; padding:0; }
+/* tight caption */
+.work-meta{ margin-top:4px; padding:0; }
 .work-kind{
   display:block;
   font-family:'Jost', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
   font-weight:300;
   font-size:11px;
-  line-height:1.25;
+  line-height:1.3;
   color:var(--muted);
   letter-spacing:.02em;
 }
@@ -118,10 +125,7 @@ label{display:block}
 
 /* Lightbox */
 dialog::backdrop{background:rgba(0,0,0,.5)}
-dialog.lightbox{
-  padding:0; border:none; border-radius:12px; max-width:min(92vw,1100px);
-  box-shadow:var(--shadow); overflow:hidden;
-}
+dialog.lightbox{padding:0; border:none; border-radius:12px; max-width:min(92vw,1100px); box-shadow:var(--shadow); overflow:hidden;}
 .lb-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;background:#fff;color:#333;border-bottom:1px solid var(--line)}
 .lb-img{display:block;width:100%;height:auto;background:#000}
 .x{border:1px solid var(--line);background:#fff;color:#333;border-radius:8px;padding:6px 10px;cursor:pointer}
