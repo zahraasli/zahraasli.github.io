@@ -5,63 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Zahra Asli — Portfolio</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 
-  <!-- Meta / Share -->
   <meta name="description" content="Zahra Asli — Visual artist. Selected works, exhibitions, and research.">
   <meta property="og:title" content="Zahra Asli — Portfolio">
   <meta property="og:description" content="Selected works, exhibitions, and research.">
-  <meta property="og:image" content="/assets/hero.jpg">
-  <link rel="icon" href="/assets/favicon.svg">
+  <meta property="og:image" content="./assets/hero.jpg">
+  <link rel="icon" href="./assets/favicon.svg">
 
-  <link rel="stylesheet" href="zahra.css">
+  <link rel="stylesheet" href="./zahra.css">
 </head>
 <body class="theme-light no-scroll">
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="/" aria-label="Zahra Asli — Home">Zahra<span>Asli</span></a>
+      <a class="brand" href="./" aria-label="Zahra Asli — Home">Zahra<span>Asli</span></a>
       <nav class="navlinks" aria-label="Primary">
-        <a href="/works.html">Works</a>
-        <a href="/exhibitions.html">Exhibitions</a>
-        <a href="/research.html">Research</a>
-        <a href="/bio.html">Bio</a>
-        <a href="/contact.html">Contact</a>
+        <a href="./works.html">Works</a>
+        <a href="./exhibitions.html">Exhibitions</a>
+        <a href="./research.html">Research</a>
+        <a href="./bio.html">Bio</a>
+        <a href="./contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- FULLSCREEN VIDEO -->
     <section class="hero-full" aria-label="Featured video">
-      <video class="hero-video"
-             autoplay
-             muted
-             loop
-             playsinline
-             preload="metadata"
-             poster="/assets/hero.jpg">
-        <source src="/assets/hero.webm" type="video/webm">
-        <source src="/assets/hero.mp4"  type="video/mp4">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="./assets/hero.jpg">
+        <source src="./assets/hero.webm" type="video/webm">
+        <source src="./assets/hero.mp4"  type="video/mp4">
       </video>
     </section>
   </main>
 
   <script>
-    // 1) قد واقعی هدر → --hdr (تا ویدیو دقیقاً زیر هدر بنشیند)
+    // Header height var
     const root = document.documentElement;
     const hdr  = document.querySelector('.header');
     function setHdr(){ root.style.setProperty('--hdr', (hdr?.offsetHeight || 72) + 'px'); }
     setHdr(); addEventListener('resize', setHdr);
 
-    // 2) صرفه‌جویی باتری: تب پنهان شد → pause
+    // Pause video when tab hidden
     const vid = document.querySelector('.hero-video');
     document.addEventListener('visibilitychange', ()=>{ if(!vid) return; document.hidden ? vid.pause() : vid.play(); });
 
-    // 3) احترام به کاهش موشن کاربر
+    // Respect reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { vid && vid.pause(); }
+
+    // Auto-highlight current nav link on all pages
+    (function(){
+      const path = location.pathname.replace(/\/+$/, ''); // trim trailing slash
+      const file = path.split('/').pop() || 'index.html';
+      document.querySelectorAll('.navlinks a').forEach(a=>{
+        const href = a.getAttribute('href').replace('./','').replace(/^\//,'');
+        if ((file === 'index.html' && (href === '' || href === './' || href === 'index.html')) ||
+            (href && file === href)) {
+          a.setAttribute('aria-current','page');
+        }
+      });
+    })();
   </script>
 </body>
 </html>
