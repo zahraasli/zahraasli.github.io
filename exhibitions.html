@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Exhibitions — Zahra Asli</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -27,88 +26,129 @@
   </header>
 
   <main class="section container">
-    <!-- Reuse the same 4-up tight grid styles by using .works-grid and .work -->
-    <div class="works-grid">
-      <!-- Replace image paths/titles with real exhibition entries -->
-      <article>
-        <a class="work" href="#" data-lightbox="true" aria-label="Open Echoes of Yesterday">
-          <figure class="work-cover" data-full="./assets/exhibitions/exh-01/cover.jpg">
-            <img src="./assets/exhibitions/exh-01/cover.jpg" alt="Echoes of Yesterday poster" loading="lazy">
-            <figcaption class="work-overlay"><span class="work-title">Echoes of Yesterday</span></figcaption>
-          </figure>
-          <div class="work-meta"><span class="work-kind">Group Exhibition · 2025 · Greenville</span></div>
-        </a>
-      </article>
+    <div class="exhibitions-layout">
+      <!-- Sidebar: years -->
+      <aside class="exhibitions-sidebar" aria-label="Years">
+        <ul class="years">
+          <li><button class="year-link" data-year="2025">2025</button></li>
+          <li><button class="year-link" data-year="2024">2024</button></li>
+          <li><button class="year-link" data-year="2023">2023</button></li>
+          <li><button class="year-link" data-year="2022">2022</button></li>
+        </ul>
+      </aside>
 
-      <article>
-        <a class="work" href="#" data-lightbox="true" aria-label="Open Shoreline of Silence">
-          <figure class="work-cover" data-full="./assets/exhibitions/exh-02/cover.jpg">
-            <img src="./assets/exhibitions/exh-02/cover.jpg" alt="Shoreline of Silence exhibition image" loading="lazy">
-            <figcaption class="work-overlay"><span class="work-title">Shoreline of Silence</span></figcaption>
-          </figure>
-          <div class="work-meta"><span class="work-kind">Solo Exhibition · 2024 · Clemson</span></div>
-        </a>
-      </article>
+      <!-- Content: entries for selected year -->
+      <section class="exhibitions-content" id="exhibitions-content" aria-live="polite">
+        <!-- 2025 -->
+        <div class="year-block" data-year="2025">
+          <div class="entries">
+            <article class="entry">
+              <a href="#" class="entry-link" data-lightbox="true" aria-label="Traverse Showcase (2025)">
+                <figure>
+                  <img src="./assets/exhibitions/2025/traverse/cover.jpg" alt="Traverse Showcase poster">
+                </figure>
+              </a>
+              <h3>Traverse Showcase</h3>
+              <div class="entry-meta">
+                <span>Interactive Media</span>
+                <span>Orlando, FL</span>
+                <span>2025</span>
+              </div>
+              <p class="entry-desc">An interactive ML-based installation exploring kinesthetic perception and glitch aesthetics in public space.</p>
+            </article>
 
-      <article>
-        <a class="work" href="#" data-lightbox="true" aria-label="Open Traverse Showcase">
-          <figure class="work-cover" data-full="./assets/exhibitions/exh-03/cover.jpg">
-            <img src="./assets/exhibitions/exh-03/cover.jpg" alt="Traverse showcase image" loading="lazy">
-            <figcaption class="work-overlay"><span class="work-title">Traverse Showcase</span></figcaption>
-          </figure>
-          <div class="work-meta"><span class="work-kind">Interactive Media · 2025 · Orlando</span></div>
-        </a>
-      </article>
+            <article class="entry">
+              <a href="#" class="entry-link" data-lightbox="true" aria-label="Echoes of Yesterday (2025)">
+                <figure>
+                  <img src="./assets/exhibitions/2025/echoes/cover.jpg" alt="Echoes of Yesterday poster">
+                </figure>
+              </a>
+              <h3>Echoes of Yesterday</h3>
+              <div class="entry-meta">
+                <span>Group Exhibition</span>
+                <span>Greenville, SC</span>
+                <span>2025</span>
+              </div>
+              <p class="entry-desc">Photographic works examining memory, absence, and layered urban poetics.</p>
+            </article>
+          </div>
+        </div>
 
-      <article>
-        <a class="work" href="#" data-lightbox="true" aria-label="Open Language of Wings">
-          <figure class="work-cover" data-full="./assets/exhibitions/exh-04/cover.jpg">
-            <img src="./assets/exhibitions/exh-04/cover.jpg" alt="The Language of Wings exhibition image" loading="lazy">
-            <figcaption class="work-overlay"><span class="work-title">The Language of Wings</span></figcaption>
-          </figure>
-          <div class="work-meta"><span class="work-kind">Photography · 2024 · San Diego</span></div>
-        </a>
-      </article>
+        <!-- 2024 -->
+        <div class="year-block" data-year="2024" hidden>
+          <div class="entries">
+            <article class="entry">
+              <a href="#" class="entry-link" data-lightbox="true" aria-label="Shoreline of Silence (2024)">
+                <figure>
+                  <img src="./assets/exhibitions/2024/shoreline/cover.jpg" alt="Shoreline of Silence exhibition image">
+                </figure>
+              </a>
+              <h3>Shoreline of Silence</h3>
+              <div class="entry-meta">
+                <span>Solo Exhibition</span>
+                <span>Clemson, SC</span>
+                <span>2024</span>
+              </div>
+              <p class="entry-desc">A series of photographs and text fragments tracing the liminal space between presence and departure.</p>
+            </article>
 
-      <article>
-        <a class="work" href="#" data-lightbox="true" aria-label="Open Mirage">
-          <figure class="work-cover" data-full="./assets/exhibitions/exh-05/cover.jpg">
-            <img src="./assets/exhibitions/exh-05/cover.jpg" alt="Mirage exhibition image" loading="lazy">
-            <figcaption class="work-overlay"><span class="work-title">Mirage</span></figcaption>
-          </figure>
-          <div class="work-meta"><span class="work-kind">Group Exhibition · 2023 · Tehran</span></div>
-        </a>
-      </article>
+            <article class="entry">
+              <a href="#" class="entry-link" data-lightbox="true" aria-label="Return (2024)">
+                <figure>
+                  <img src="./assets/exhibitions/2024/return/cover.jpg" alt="Return exhibition image">
+                </figure>
+              </a>
+              <h3>Return</h3>
+              <div class="entry-meta">
+                <span>Photography</span>
+                <span>Atlanta, GA</span>
+                <span>2024</span>
+              </div>
+              <p class="entry-desc">Layered, dreamlike imagery where floral textures merge with figure and memory.</p>
+            </article>
+          </div>
+        </div>
 
-      <article>
-        <a class="work" href="#" data-lightbox="true" aria-label="Open Return">
-          <figure class="work-cover" data-full="./assets/exhibitions/exh-06/cover.jpg">
-            <img src="./assets/exhibitions/exh-06/cover.jpg" alt="Return exhibition image" loading="lazy">
-            <figcaption class="work-overlay"><span class="work-title">Return</span></figcaption>
-          </figure>
-          <div class="work-meta"><span class="work-kind">Photography · 2024 · Atlanta</span></div>
-        </a>
-      </article>
+        <!-- 2023 -->
+        <div class="year-block" data-year="2023" hidden>
+          <div class="entries">
+            <article class="entry">
+              <a href="#" class="entry-link" data-lightbox="true" aria-label="Mirage (2023)">
+                <figure>
+                  <img src="./assets/exhibitions/2023/mirage/cover.jpg" alt="Mirage exhibition image">
+                </figure>
+              </a>
+              <h3>Mirage</h3>
+              <div class="entry-meta">
+                <span>Group Exhibition</span>
+                <span>Tehran, IR</span>
+                <span>2023</span>
+              </div>
+              <p class="entry-desc">Conceptual photography probing perception, distortion, and the poetics of distance.</p>
+            </article>
+          </div>
+        </div>
 
-      <article>
-        <a class="work" href="#" data-lightbox="true" aria-label="Open Oceans">
-          <figure class="work-cover" data-full="./assets/exhibitions/exh-07/cover.jpg">
-            <img src="./assets/exhibitions/exh-07/cover.jpg" alt="Oceans exhibition image" loading="lazy">
-            <figcaption class="work-overlay"><span class="work-title">Oceans</span></figcaption>
-          </figure>
-          <div class="work-meta"><span class="work-kind">Installation · 2024 · Savannah</span></div>
-        </a>
-      </article>
-
-      <article>
-        <a class="work" href="#" data-lightbox="true" aria-label="Open Echoes II">
-          <figure class="work-cover" data-full="./assets/exhibitions/exh-08/cover.jpg">
-            <img src="./assets/exhibitions/exh-08/cover.jpg" alt="Echoes II exhibition image" loading="lazy">
-            <figcaption class="work-overlay"><span class="work-title">Echoes II</span></figcaption>
-          </figure>
-          <div class="work-meta"><span class="work-kind">Poster Series · 2022 · Online</span></div>
-        </a>
-      </article>
+        <!-- 2022 -->
+        <div class="year-block" data-year="2022" hidden>
+          <div class="entries">
+            <article class="entry">
+              <a href="#" class="entry-link" data-lightbox="true" aria-label="Echoes II (2022)">
+                <figure>
+                  <img src="./assets/exhibitions/2022/echoes-ii/cover.jpg" alt="Echoes II exhibition image">
+                </figure>
+              </a>
+              <h3>Echoes II</h3>
+              <div class="entry-meta">
+                <span>Poster Series</span>
+                <span>Online</span>
+                <span>2022</span>
+              </div>
+              <p class="entry-desc">Graphic series using glitch as an aesthetic and epistemic event.</p>
+            </article>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -127,11 +167,10 @@
     const img = dlg.querySelector('.lb-img');
     const closeBtn = dlg.querySelector('[data-close]');
     document.addEventListener('click', (e)=>{
-      const a = e.target.closest('a.work[data-lightbox]');
+      const a = e.target.closest('a.entry-link[data-lightbox]');
       if(!a) return;
       e.preventDefault();
-      const fig = a.querySelector('.work-cover');
-      const full = fig?.getAttribute('data-full') || fig?.querySelector('img')?.src;
+      const full = a.querySelector('img')?.src;
       if(full){ img.src = full; img.alt = a.getAttribute('aria-label') || 'Exhibition preview'; dlg.showModal(); }
     });
     closeBtn.addEventListener('click', ()=> dlg.close());
@@ -149,6 +188,29 @@
         }
       });
     })();
+
+    // Year switching (click and hover). Supports deep-link via hash #yYYYY
+    const yearButtons = Array.from(document.querySelectorAll('.year-link'));
+    const yearBlocks  = Array.from(document.querySelectorAll('.year-block'));
+
+    function showYear(y){
+      yearBlocks.forEach(b => b.hidden = (b.dataset.year !== y));
+      yearButtons.forEach(b => b.classList.toggle('active', b.dataset.year === y));
+      if (location.hash !== '#y'+y) history.replaceState(null, '', '#y'+y);
+    }
+
+    yearButtons.forEach(btn=>{
+      btn.addEventListener('click', e => { e.preventDefault(); showYear(btn.dataset.year); });
+      btn.addEventListener('mouseenter', () => { if (matchMedia('(pointer:fine)').matches) showYear(btn.dataset.year); });
+    });
+
+    function initFromHash(){
+      const m = location.hash.match(/#y(\d{4})/);
+      const y = (m && m[1]) || (yearButtons[0] && yearButtons[0].dataset.year);
+      if (y) showYear(y);
+    }
+    window.addEventListener('hashchange', initFromHash);
+    initFromHash();
   </script>
 </body>
 </html>
