@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exhibitions — Zahra Asli</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./zahra.css" />
+</head>
+<body class="theme-light">
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="./" aria-label="Zahra Asli — Home">Zahra<span>Asli</span></a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="./works.html">Works</a>
+        <a href="./exhibitions.html">Exhibitions</a>
+        <a href="./research.html">Research</a>
+        <a href="./bio.html">Bio</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section container">
+    <!-- Reuse the same 4-up tight grid styles by using .works-grid and .work -->
+    <div class="works-grid">
+      <!-- Replace image paths/titles with real exhibition entries -->
+      <article>
+        <a class="work" href="#" data-lightbox="true" aria-label="Open Echoes of Yesterday">
+          <figure class="work-cover" data-full="./assets/exhibitions/exh-01/cover.jpg">
+            <img src="./assets/exhibitions/exh-01/cover.jpg" alt="Echoes of Yesterday poster" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Echoes of Yesterday</span></figcaption>
+          </figure>
+          <div class="work-meta"><span class="work-kind">Group Exhibition · 2025 · Greenville</span></div>
+        </a>
+      </article>
+
+      <article>
+        <a class="work" href="#" data-lightbox="true" aria-label="Open Shoreline of Silence">
+          <figure class="work-cover" data-full="./assets/exhibitions/exh-02/cover.jpg">
+            <img src="./assets/exhibitions/exh-02/cover.jpg" alt="Shoreline of Silence exhibition image" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Shoreline of Silence</span></figcaption>
+          </figure>
+          <div class="work-meta"><span class="work-kind">Solo Exhibition · 2024 · Clemson</span></div>
+        </a>
+      </article>
+
+      <article>
+        <a class="work" href="#" data-lightbox="true" aria-label="Open Traverse Showcase">
+          <figure class="work-cover" data-full="./assets/exhibitions/exh-03/cover.jpg">
+            <img src="./assets/exhibitions/exh-03/cover.jpg" alt="Traverse showcase image" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Traverse Showcase</span></figcaption>
+          </figure>
+          <div class="work-meta"><span class="work-kind">Interactive Media · 2025 · Orlando</span></div>
+        </a>
+      </article>
+
+      <article>
+        <a class="work" href="#" data-lightbox="true" aria-label="Open Language of Wings">
+          <figure class="work-cover" data-full="./assets/exhibitions/exh-04/cover.jpg">
+            <img src="./assets/exhibitions/exh-04/cover.jpg" alt="The Language of Wings exhibition image" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">The Language of Wings</span></figcaption>
+          </figure>
+          <div class="work-meta"><span class="work-kind">Photography · 2024 · San Diego</span></div>
+        </a>
+      </article>
+
+      <article>
+        <a class="work" href="#" data-lightbox="true" aria-label="Open Mirage">
+          <figure class="work-cover" data-full="./assets/exhibitions/exh-05/cover.jpg">
+            <img src="./assets/exhibitions/exh-05/cover.jpg" alt="Mirage exhibition image" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Mirage</span></figcaption>
+          </figure>
+          <div class="work-meta"><span class="work-kind">Group Exhibition · 2023 · Tehran</span></div>
+        </a>
+      </article>
+
+      <article>
+        <a class="work" href="#" data-lightbox="true" aria-label="Open Return">
+          <figure class="work-cover" data-full="./assets/exhibitions/exh-06/cover.jpg">
+            <img src="./assets/exhibitions/exh-06/cover.jpg" alt="Return exhibition image" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Return</span></figcaption>
+          </figure>
+          <div class="work-meta"><span class="work-kind">Photography · 2024 · Atlanta</span></div>
+        </a>
+      </article>
+
+      <article>
+        <a class="work" href="#" data-lightbox="true" aria-label="Open Oceans">
+          <figure class="work-cover" data-full="./assets/exhibitions/exh-07/cover.jpg">
+            <img src="./assets/exhibitions/exh-07/cover.jpg" alt="Oceans exhibition image" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Oceans</span></figcaption>
+          </figure>
+          <div class="work-meta"><span class="work-kind">Installation · 2024 · Savannah</span></div>
+        </a>
+      </article>
+
+      <article>
+        <a class="work" href="#" data-lightbox="true" aria-label="Open Echoes II">
+          <figure class="work-cover" data-full="./assets/exhibitions/exh-08/cover.jpg">
+            <img src="./assets/exhibitions/exh-08/cover.jpg" alt="Echoes II exhibition image" loading="lazy">
+            <figcaption class="work-overlay"><span class="work-title">Echoes II</span></figcaption>
+          </figure>
+          <div class="work-meta"><span class="work-kind">Poster Series · 2022 · Online</span></div>
+        </a>
+      </article>
+    </div>
+  </main>
+
+  <!-- Reuse the same lightbox dialog -->
+  <dialog class="lightbox" id="lightbox" aria-label="Image preview">
+    <div class="lb-bar">
+      <span class="small muted">Preview</span>
+      <button class="x" type="button" data-close>Close</button>
+    </div>
+    <img class="lb-img" alt="Exhibition preview">
+  </dialog>
+
+  <script>
+    // Lightbox
+    const dlg = document.getElementById('lightbox');
+    const img = dlg.querySelector('.lb-img');
+    const closeBtn = dlg.querySelector('[data-close]');
+    document.addEventListener('click', (e)=>{
+      const a = e.target.closest('a.work[data-lightbox]');
+      if(!a) return;
+      e.preventDefault();
+      const fig = a.querySelector('.work-cover');
+      const full = fig?.getAttribute('data-full') || fig?.querySelector('img')?.src;
+      if(full){ img.src = full; img.alt = a.getAttribute('aria-label') || 'Exhibition preview'; dlg.showModal(); }
+    });
+    closeBtn.addEventListener('click', ()=> dlg.close());
+    dlg.addEventListener('click', (e)=>{ if(e.target === dlg) dlg.close(); });
+
+    // Auto-highlight current nav link
+    (function(){
+      const path = location.pathname.replace(/\/+$/, '');
+      const file = path.split('/').pop() || 'index.html';
+      document.querySelectorAll('.navlinks a').forEach(a=>{
+        const href = a.getAttribute('href').replace('./','').replace(/^\//,'');
+        if ((file === 'index.html' && (href === '' || href === './' || href === 'index.html')) ||
+            (href && file === href)) {
+          a.setAttribute('aria-current','page');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
