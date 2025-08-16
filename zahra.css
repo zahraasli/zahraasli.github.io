@@ -167,3 +167,67 @@ figure{ margin:0; }                               /* kill default figure margins
   .entries{ gap:20px; }
   .entry{ padding-top:16px; }
 }
+/* ===== Research (Google Scholar–like list) ===== */
+:root{ --scholar-link:#5b34c8; } /* purple link like Scholar */
+
+.research-header{
+  display:flex; align-items:center; justify-content:space-between;
+  margin:8px 0 14px; padding:0 2px 10px; border-bottom:1px solid var(--line);
+}
+.research-header h1{ margin:0; font-size:var(--fs-2); font-weight:700; }
+
+.scholar-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border:1px solid var(--line); border-radius:10px;
+  font-weight:600; text-decoration:none;
+}
+.scholar-btn svg{ width:16px; height:16px; }
+
+.papers{
+  width:100%;
+}
+.papers-head, .paper{
+  display:grid; align-items:center;
+  grid-template-columns: 1fr 110px 70px; /* Title | Cited by | Year */
+  gap:18px;
+}
+.papers-head{
+  padding:10px 2px; color:var(--muted);
+  text-transform:uppercase; letter-spacing:.08em; font-weight:600;
+}
+.papers-head .clickable{ cursor:pointer; user-select:none; }
+
+.paper{
+  padding:18px 2px; border-top:1px solid var(--line);
+}
+.paper-title a{
+  color:var(--scholar-link); font-size:var(--fs-1); line-height:1.35;
+}
+.paper-title a:hover{ text-decoration:underline; }
+.paper-authors, .paper-venue{
+  margin:.2rem 0 0; color:var(--muted); font-size:var(--fs-0);
+}
+.paper-links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
+.paper-links a{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:var(--fs--1); padding:4px 8px; border:1px solid var(--line);
+  border-radius:999px; color:var(--fg); text-decoration:none;
+}
+.paper-links a svg{ width:14px; height:14px; }
+.paper-links a:hover{ background:#fafafa; }
+
+.paper-cited{ text-align:right; font-weight:600; }
+.paper-cited a{ color:var(--fg); text-decoration:none; }
+.paper-cited a:hover{ text-decoration:underline; }
+
+.paper-year{ text-align:right; color:var(--fg); font-weight:600; }
+
+@media (max-width:760px){
+  .papers-head, .paper{
+    grid-template-columns: 1fr; gap:8px;
+  }
+  .paper-cited, .paper-year{ text-align:left; }
+}
+
+/* tiny utility */
+.icon-external{ display:inline-block; transform:translateY(1px); }
