@@ -231,3 +231,42 @@ figure{ margin:0; }                               /* kill default figure margins
 
 /* tiny utility */
 .icon-external{ display:inline-block; transform:translateY(1px); }
+/* ===== Research — Scholar-like (Title | Year, row click) ===== */
+.research-wrap{ margin-top:6px; }
+.research-title{ margin:0 0 12px; font-size:var(--fs-2); font-weight:700; }
+
+.r-head, .r-row{
+  display:grid; align-items:center;
+  grid-template-columns: 1fr 80px; /* Title | Year */
+  gap:18px;
+}
+.r-head{
+  background:#f7f7f7;
+  border:1px solid var(--line);
+  padding:12px 10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:600;
+  color:var(--muted);
+}
+
+/* clickable row */
+.r-row{
+  text-decoration:none; color:inherit;
+  padding:18px 2px;
+  border-top:1px solid var(--line);
+}
+.r-title{
+  color:#5b34c8;             /* Scholar-like purple */
+  font-size:var(--fs-1);
+  line-height:1.35;
+}
+.r-title:hover{ text-decoration:underline; }
+.r-meta{ margin:.25rem 0 0; color:var(--muted); font-size:var(--fs-0); }
+.r-venue{ margin:0; color:var(--muted); font-size:var(--fs-0); }
+.r-year{ text-align:right; font-weight:600; color:var(--fg); }
+
+@media (max-width:760px){
+  .r-head, .r-row{ grid-template-columns:1fr; gap:8px; }
+  .r-year{ text-align:left; }
+}
