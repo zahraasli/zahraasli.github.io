@@ -10,20 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./zahra.css" />
-
-  <!-- Page-scoped overrides to make a clean 2-column (Title | Year) list like Scholar -->
-  <style>
-    #research-page .papers-head, #research-page .paper{
-      display:grid; align-items:center;
-      grid-template-columns: 1fr 80px; /* Title | Year */
-      gap:18px;
-    }
-    #research-page .paper-cited{ display:none; } /* hide the cited column */
-    #research-page .papers-head .clickable{ cursor:pointer; user-select:none; }
-    #research-page .empty-note{
-      margin:16px 0; padding:12px 14px; border:1px dashed var(--line); border-radius:10px; color:var(--muted);
-    }
-  </style>
 </head>
 <body class="theme-light">
   <header class="header">
@@ -39,32 +25,45 @@
     </div>
   </header>
 
-  <main class="section container" id="research-page">
-    <!-- Header -->
-    <div class="research-header">
-      <h1>Research</h1>
-      <a class="scholar-btn" href="https://scholar.google.com/citations?user=MVHDE9oAAAAJ&hl=en" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M18 3h3v3"></path><path d="M10 14L21 3"></path><path d="M21 10v11H3V3h11"></path>
-        </svg>
-        Google Scholar
-      </a>
-    </div>
+  <main class="section container">
+    <h1 class="research-title">Research</h1>
 
-    <!-- Head row -->
-    <div class="papers">
-      <div class="papers-head">
+    <div class="research-wrap">
+      <!-- Header row -->
+      <div class="r-head">
         <div>TITLE</div>
-        <div class="t-right clickable" id="sort-year">YEAR</div>
+        <div class="t-right">YEAR</div>
       </div>
 
-      <!-- Entries will be injected here -->
-      <div id="papers-list"></div>
+      <!-- Rows (each row is one clickable research item) -->
+      <a class="r-row" href="./research/metaphorical-semiotics.html">
+        <div>
+          <div class="r-title">Metaphorical Semiotics of the Elements of Creating Atmosphere of Persian Traditional Spaces in Ali Hatami's Cinema (Case Study: Love-Stricken Film)</div>
+          <p class="r-meta">A Akbari, SZA Eramsadati, R Abdollahi</p>
+          <p class="r-venue">International Journal of Applied Arts Studies (IJAPAS) 6(1), 17–32</p>
+        </div>
+        <div class="r-year">2021</div>
+      </a>
 
-      <!-- Fallback note (hidden after load) -->
-      <div class="empty-note" id="empty-note" hidden>
-        Could not load <code>assets/research.bib</code>. Make sure you exported a BibTeX file from Google Scholar and placed it at <code>/assets/research.bib</code>.
-      </div>
+      <a class="r-row" href="./research/shoreline-of-silence.html">
+        <div>
+          <div class="r-title">Shoreline of Silence: A Photographic Inquiry into Liminal Spaces</div>
+          <p class="r-meta">Z Asli, J Smith</p>
+          <p class="r-venue">Proceedings of Visual Culture</p>
+        </div>
+        <div class="r-year">2024</div>
+      </a>
+
+      <a class="r-row" href="./research/traverse-ml-installation.html">
+        <div>
+          <div class="r-title">Traverse: Machine-Learning Driven Interactive Installation</div>
+          <p class="r-meta">Z Asli</p>
+          <p class="r-venue">Art & Technology Review 12(2): 45–59</p>
+        </div>
+        <div class="r-year">2025</div>
+      </a>
+
+      <!-- Add more rows by copying the block above -->
     </div>
   </main>
 
@@ -81,138 +80,6 @@
         }
       });
     })();
-
-    // ---- BibTeX -> JSON (minimal, works with Scholar export) ----
-    async function loadBibTex(url){
-      const res = await fetch(url, {cache: "no-store"});
-      if(!res.ok) throw new Error("bib not found");
-      const text = await res.text();
-      return parseBibTex(text);
-    }
-
-    function parseBibTex(text){
-      const entries = [];
-      const chunks = text.split(/@\w+\s*{/g); // split but keep first empty
-      const types  = [...text.matchAll(/@(\w+)\s*{/g)].map(m=>m[1].toLowerCase());
-
-      let idx = 0;
-      for(let i=1;i<chunks.length;i++){
-        const type = types[idx++] || "misc";
-        const rest = chunks[i];
-        const end  = rest.lastIndexOf('}');
-        const body = end >= 0 ? rest.slice(0, end) : rest;
-        // remove leading key before comma
-        const afterKey = body.replace(/^[^,]*,/, '');
-        const fields = {};
-        // parse key = {value} or "value"
-        let current = ""; let key = null; let brace = 0; let inQuote = false;
-        for(let j=0;j<afterKey.length;j++){
-          const ch = afterKey[j];
-          if(key == null){
-            // collecting key until '='
-            if(ch === '='){
-              key = current.trim().toLowerCase();
-              current = "";
-            }
-          }else{
-            if(ch === '"' && brace===0){ inQuote = !inQuote; current += ch; continue; }
-            if(ch === '{' && !inQuote) brace++;
-            if(ch === '}' && !inQuote && brace>0) brace--;
-            if(ch === ',' && !inQuote && brace===0){
-              fields[key] = cleanVal(current);
-              key = null; current = "";
-              continue;
-            }
-          }
-          current += ch;
-        }
-        if(key!=null && current.trim()) fields[key] = cleanVal(current);
-
-        const title = fields.title || "";
-        const year  = (fields.year || "").toString().match(/\d{4}/)?.[0] || "";
-        const authors = (fields.author || "").split(/\s+and\s+/i).map(s=>s.trim()).filter(Boolean).join(', ');
-        const venue = fields.journal || fields.booktitle || fields.publisher || "";
-        const pages = fields.pages ? ` ${fields.pages}` : "";
-        const volno = fields.volume ? `${fields.volume}${fields.number ? '('+fields.number+')' : ''}` : (fields.number||"");
-        const venueFull = [venue, volno ? ' ' + volno : '', pages].join('').trim();
-
-        const doi  = fields.doi ? fields.doi.replace(/^https?:\/\/(dx\.)?doi\.org\//,'') : "";
-        const url  = fields.url || (doi ? `https://doi.org/${doi}` : `https://scholar.google.com/scholar?q=${encodeURIComponent(title)}`);
-
-        entries.push({type, title, year, authors, venue: venueFull, url});
-      }
-      return entries.filter(e=>e.title);
-    }
-
-    function cleanVal(v){
-      // remove surrounding quotes/braces and trailing commas/whitespace
-      v = v.trim().replace(/^[,]+|[,]+$/g,'');
-      if((v.startsWith('{') && v.endsWith('}')) || (v.startsWith('"') && v.endsWith('"'))){
-        v = v.slice(1, -1);
-      }
-      // keep capitalization braces by removing only outermost
-      return v.replace(/\s+/g,' ').trim();
-    }
-
-    // ---- Render list ----
-    function renderPapers(list){
-      const container = document.getElementById('papers-list');
-      container.innerHTML = "";
-      if(!list.length){
-        document.getElementById('empty-note').hidden = false;
-        return;
-      }
-      document.getElementById('empty-note').hidden = true;
-
-      // sort by year desc by default
-      list.sort((a,b)=> (parseInt(b.year||'0',10) - parseInt(a.year||'0',10)));
-
-      for(const p of list){
-        const item = document.createElement('article');
-        item.className = 'paper';
-        item.dataset.year = p.year || '';
-
-        const left = document.createElement('div');
-        left.className = 'paper-title';
-        left.innerHTML = `
-          <a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">${escapeHtml(p.title)}</a>
-          ${p.authors ? `<p class="paper-authors">${escapeHtml(p.authors)}</p>` : ''}
-          ${p.venue || p.year ? `<p class="paper-venue">${escapeHtml([p.venue, p.venue && p.year ? ', ' : '', p.venue ? '' : '', p.year || ''].join(''))}</p>` : ''}
-        `;
-
-        const year = document.createElement('div');
-        year.className = 'paper-year';
-        year.textContent = p.year || '—';
-
-        item.append(left, year);
-        container.appendChild(item);
-      }
-    }
-
-    function escapeHtml(s){
-      return s.replace(/[&<>"']/g, (m)=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
-    }
-
-    // Sort toggle
-    (function(){
-      const btn = document.getElementById('sort-year');
-      let desc = true;
-      btn.addEventListener('click', ()=>{
-        const list = Array.from(document.querySelectorAll('#papers-list .paper'));
-        list.sort((a,b)=>{
-          const ya = parseInt(a.dataset.year||'0',10);
-          const yb = parseInt(b.dataset.year||'0',10);
-          return desc ? ya - yb : yb - ya;
-        });
-        list.forEach(n=>document.getElementById('papers-list').appendChild(n));
-        desc = !desc;
-      });
-    })();
-
-    // Load BibTeX from /assets/research.bib
-    loadBibTex('./assets/research.bib')
-      .then(renderPapers)
-      .catch(()=>{ document.getElementById('empty-note').hidden = false; });
   </script>
 </body>
 </html>
